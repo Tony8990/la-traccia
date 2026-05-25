@@ -60,7 +60,7 @@ export function Contatti() {
                 noValidate
                 name="contatti"
                 method="POST"
-                data-netlify="true"
+                netlify
               >
                 {/* Campo hidden richiesto da Netlify Forms */}
                 <input type="hidden" name="form-name" value="contatti" />
