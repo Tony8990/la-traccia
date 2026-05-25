@@ -1,0 +1,12 @@
+[build]
+  command   = "npm run build"
+  publish   = "out"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Redirect rules so direct URL access to sub-pages works
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
