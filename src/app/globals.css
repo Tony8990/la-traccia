@@ -1,0 +1,170 @@
+/* Google Fonts loaded via <link> in layout.tsx */
+@import "tailwindcss";
+
+@theme {
+  /* ── Palette ── */
+  --color-burgundy:     #6B1A22;
+  --color-burgundy-dk:  #4A0F15;
+  --color-burgundy-lt:  #8C2A34;
+  --color-gold:         #C8973A;
+  --color-gold-lt:      #E8B95A;
+  --color-gold-dk:      #A07020;
+  --color-cream:        #F5EDD8;
+  --color-cream-dk:     #E8D9B8;
+  --color-ivory:        #FAF6EE;
+  --color-dark:         #1A0D0F;
+  --color-dark-lt:      #2E1A1E;
+
+  /* ── Fonts ── */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-serif:   'Cormorant Garamond', Georgia, serif;
+  --font-sans:    'Josefin Sans', 'Helvetica Neue', sans-serif;
+  --font-script:  'Dancing Script', 'Palatino Linotype', Georgia, serif;
+}
+
+/* ════════════════════════════════════════
+   BASE
+════════════════════════════════════════ */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-serif);
+  background-color: var(--color-ivory);
+  color: var(--color-dark-lt);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Selection ── */
+::selection {
+  background: var(--color-gold);
+  color: var(--color-dark);
+}
+
+/* ── Focus ring (accessible) ── */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* ════════════════════════════════════════
+   SCROLLBAR
+════════════════════════════════════════ */
+::-webkit-scrollbar         { width: 7px; }
+::-webkit-scrollbar-track   { background: var(--color-dark); }
+::-webkit-scrollbar-thumb   { background: var(--color-gold); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-gold-lt); }
+
+/* ════════════════════════════════════════
+   ART DECO BACKGROUND HELPERS
+════════════════════════════════════════ */
+.deco-grid {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent, transparent 50px,
+      rgba(200,151,58,0.035) 50px, rgba(200,151,58,0.035) 51px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent, transparent 50px,
+      rgba(200,151,58,0.035) 50px, rgba(200,151,58,0.035) 51px
+    );
+}
+
+.deco-stripe {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent, transparent 40px,
+    rgba(200,151,58,0.035) 40px, rgba(200,151,58,0.035) 41px
+  );
+}
+
+/* ── Thin decorative rule ── */
+.deco-rule {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-gold);
+}
+.deco-rule::before,
+.deco-rule::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+/* ════════════════════════════════════════
+   SMOOTH HOVER TRANSITIONS GLOBAL
+════════════════════════════════════════ */
+a, button {
+  transition-property: color, background-color, border-color, opacity, transform, box-shadow;
+  transition-duration: 450ms;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ════════════════════════════════════════
+   MARQUEE
+════════════════════════════════════════ */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  gap: 0; /* spacing handled by px-6 on each item */
+  width: max-content;
+  animation: marquee-scroll 28s linear infinite;
+  will-change: transform;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ════════════════════════════════════════
+   IMAGE PLACEHOLDER SHIMMER
+════════════════════════════════════════ */
+.photo-placeholder {
+  position: relative;
+  overflow: hidden;
+}
+.photo-placeholder::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(200,151,58,0.06) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3.5s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ════════════════════════════════════════
+   REDUCED MOTION
+════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  html { scroll-behavior: auto; }
+}
