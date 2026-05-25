@@ -1,0 +1,10 @@
+# La Traccia Strumenti Musicali — https://www.latraccia.it
+User-agent: *
+Allow: /
+
+# Blocca cartelle tecniche
+Disallow: /_next/
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://www.latraccia.it/sitemap.xml

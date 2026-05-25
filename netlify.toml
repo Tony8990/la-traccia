@@ -5,6 +5,16 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Notifica email per ogni invio del form "contatti"
+[[forms]]
+  name = "contatti"
+
+[[notifications.email]]
+  event   = "submission_created"
+  form    = "contatti"
+  to      = "tonyfava90@gmail.com"
+  subject = "Nuovo messaggio - La Traccia Strumenti Musicali"
+
 # Redirect rules so direct URL access to sub-pages works
 [[redirects]]
   from   = "/*"
