@@ -2,6 +2,7 @@ import { Icon } from "@iconify/react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
+import { DanceMediaCard } from "@/components/ui/DanceMediaCard";
 
 const styles = [
   {
@@ -12,7 +13,9 @@ const styles = [
     description:
       "Nato ad Harlem negli anni '20, il Lindy Hop è la radice di tutto. Energico, improvvisato, liberatorio. Si balla in coppia su musica jazz e big band, con movimenti ampi e creativi. Ogni lezione è un viaggio nel suono.",
     tags: ["Principianti", "Intermedi", "Avanzati", "Social Dancing"],
-    photoLabel: "Foto Lindy Hop",
+    photo: "/lindyhop.webp",
+    youtubeId: "I9zHYkKoL4A",
+    photoLabel: "Lindy Hop",
   },
   {
     num: "02",
@@ -22,7 +25,9 @@ const styles = [
     description:
       "Il Solo Jazz è la forma più autentica e libera del ballo swing. Improvvisazione, ritmo e personalità: si balla da soli sulla musica jazz degli anni '30 e '40. Perfetto per sviluppare musicalità e stile personale.",
     tags: ["Solo", "Improvvisazione", "Musicalità", "Tutti i livelli"],
-    photoLabel: "Foto Solo Jazz",
+    photo: "/solojazz.webp",
+    youtubeId: "bjfM4Wrj9UI",
+    photoLabel: "Solo Jazz",
     reverse: true,
   },
   {
@@ -33,7 +38,9 @@ const styles = [
     description:
       "Il Tiptap — o Tap Dance — trasforma i piedi in strumenti musicali. Ogni passo è un colpo, ogni sequenza è una frase ritmica. Radici afroamericane, anima jazz, tecnica infinita.",
     tags: ["Principianti", "Tecnica", "Ritmo", "Jazz Tap"],
-    photoLabel: "Foto Tiptap",
+    photo: "/tiptap.webp",
+    youtubeId: "HyLLh6q9u18",
+    photoLabel: "Tiptap",
   },
   {
     num: "04",
@@ -43,7 +50,9 @@ const styles = [
     description:
       "Nato nelle sale da ballo affollate degli anni '30, il Balboa è danza di dettagli: piedi, connessione, ritmo. Pure Bal e Bal-Swing per chi ama la profondità tecnica e l'intesa con il partner.",
     tags: ["Pure Bal", "Bal-Swing", "Tecnica", "Workshop"],
-    photoLabel: "Foto Balboa",
+    photo: "/balboa.webp",
+    youtubeId: "p4nq_tv0dSA",
+    photoLabel: "Balboa",
     reverse: true,
   },
 ];
@@ -89,39 +98,16 @@ export function SwingAcademy({ standalone = false }: { standalone?: boolean }) {
                   s.reverse ? "md:[&>*:first-child]:order-2" : ""
                 }`}
               >
-                {/* Photo */}
+                {/* Photo / Video */}
                 <Reveal direction={s.reverse ? "right" : "left"}>
                   <div className="relative">
-                    {/* Main photo container — swap src with real img later */}
-                    <div className="aspect-[4/3] relative overflow-hidden border border-[var(--color-gold)]/25 bg-[var(--color-dark)] group photo-placeholder">
-                      {/* Diagonal pattern */}
-                      <div
-                        className="absolute inset-0"
-                        style={{
-                          backgroundImage:
-                            "repeating-linear-gradient(45deg,transparent,transparent 14px,rgba(200,151,58,0.04) 14px,rgba(200,151,58,0.04) 15px)",
-                        }}
-                      />
-                      {/* Placeholder — replace div with <Image> when ready */}
-                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                        <Icon
-                          icon={s.icon}
-                          className="text-[6rem] text-[var(--color-gold)] opacity-[0.18]"
-                        />
-                        <span className="font-[family-name:var(--font-sans)] text-[0.65rem] tracking-[0.25em] uppercase text-[var(--color-cream)]/25">
-                          {s.photoLabel}
-                        </span>
-                      </div>
-
-                      {/* Art Deco corner frames */}
-                      <span className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-[var(--color-gold)]/40 group-hover:border-[var(--color-gold)]/80 transition-colors duration-700" />
-                      <span className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-[var(--color-gold)]/40 group-hover:border-[var(--color-gold)]/80 transition-colors duration-700" />
-                      <span className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-[var(--color-gold)]/20" />
-                      <span className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-[var(--color-gold)]/20" />
-
-                      {/* Hover overlay */}
-                      <div className="absolute inset-0 bg-[var(--color-burgundy)]/0 group-hover:bg-[var(--color-burgundy)]/10 transition-colors duration-700" />
-                    </div>
+                    <DanceMediaCard
+                      photo={s.photo}
+                      youtubeId={s.youtubeId}
+                      alt={s.photoLabel}
+                      isSoloJazz={s.title === "Solo Jazz"}
+                      icon={s.icon}
+                    />
 
                     {/* Badge */}
                     <div className="absolute -bottom-5 -right-4 md:-right-5 bg-[var(--color-gold)] flex flex-col items-center justify-center px-5 py-3 shadow-xl">

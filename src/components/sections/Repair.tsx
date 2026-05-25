@@ -164,7 +164,7 @@ export function Repair() {
             {/* Samples row */}
             <div className="flex items-center gap-4 flex-wrap justify-center md:justify-start">
               {[
-                { icon: "ph:paint-brush-fill", label: "Restauro" },
+                { icon: "ph:palette-fill", label: "Restauro" },
                 { icon: "ph:ruler-fill",        label: "Liuteria" },
                 { icon: "ph:wrench-fill",       label: "Repair"   },
               ].map((item) => (

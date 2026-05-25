@@ -41,13 +41,14 @@ export function DJNights({ standalone = false }: DJNightsProps) {
                   <span className="h-px flex-1 bg-[var(--color-gold)]/15" />
                 </div>
                 <p className="font-[family-name:var(--font-serif)] text-lg text-[var(--color-cream)]/75 leading-relaxed mb-4">
-                  Il titolare del negozio è disponibile come DJ per eventi privati, feste
-                  swing e serate a tema jazz. Repertorio originale degli anni &apos;30–&apos;50
-                  selezionato con cura discografica.
+                  Un DJ autentico che porta in scena l&apos;anima vera degli anni &apos;40:
+                  dischi originali, sonorità calde e quella magia swing che si sente
+                  soltanto quando la musica viene davvero vissuta dall&apos;interno.
                 </p>
                 <p className="font-[family-name:var(--font-serif)] text-base text-[var(--color-cream)]/55 leading-relaxed mb-8 italic">
-                  Disponibile per matrimoni, feste private, eventi aziendali, serate in
-                  locale. Contattaci per disponibilità e preventivo.
+                  Repertorio selezionato con cura discografica — big band, jump blues,
+                  hot jazz. Perfetto per matrimoni, feste private, serate in locale ed
+                  eventi a tema. Contattaci per disponibilità e preventivo.
                 </p>
                 <div className="flex flex-wrap gap-3 mb-8">
                   {[

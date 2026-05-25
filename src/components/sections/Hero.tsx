@@ -8,7 +8,7 @@ import { Icon } from "@iconify/react";
 const teasers = [
   { icon: "ph:guitar-fill",            label: "Strumenti",        href: "#products" },
   { icon: "ph:wrench-fill",            label: "Repair & Restore", href: "#repair"   },
-  { icon: "ph:clock-counterclockwise-fill", label: "Portfolio Lavori", href: "/lavori" },
+  { icon: "ph:clock-counter-clockwise-fill", label: "Portfolio Lavori", href: "/lavori" },
   { icon: "ph:person-simple-run-fill", label: "Ballo & DJ",       href: "/ballo"    },
 ];
 

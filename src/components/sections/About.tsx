@@ -14,13 +14,13 @@ const pillars = [
   },
   {
     icon: "ph:books-fill",
-    title: "Spartiti, libri & multimedia",
-    body: "Ampia selezione di libri di musica importati, canzonieri, spartiti e DVD/CD didattici per studenti, insegnanti, bande e professionisti.",
+    title: "Accessori",
+    body: "Ampia selezione di accessori: ance, corde, archetti, boccagli, custodie, supporti e molto altro. Tutto l'essenziale per ogni strumento e livello.",
   },
   {
     icon: "ph:handshake-fill",
-    title: "Scuole & istituzioni",
-    body: "Collaboriamo attivamente con scuole medie, elementari e istituti musicali del territorio. Usato garantito e strumenti in conto vendita sempre disponibili.",
+    title: "Gadget",
+    body: "Puoi trovare gadget a tema musicale",
   },
 ];
 

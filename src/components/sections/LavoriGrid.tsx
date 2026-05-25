@@ -11,7 +11,7 @@ type Category = "Tutti" | "Restauro" | "Liuteria" | "Repair";
 const lavori = [
   {
     category: "Restauro" as Category,
-    icon: "ph:paint-brush-fill",
+    icon: "ph:palette-fill",
     tag: "Restauro",
     title: "Chitarra archtop anni '40",
     desc: "Restauro completo di una chitarra jazz archtop d'epoca: ricostruzione del top, rifinitura della vernice originale a gommalacca, sostituzione del manico con legno d'epoca.",
@@ -36,7 +36,7 @@ const lavori = [
   },
   {
     category: "Restauro" as Category,
-    icon: "ph:paint-brush-fill",
+    icon: "ph:palette-fill",
     tag: "Restauro",
     title: "Contrabbasso da orchestra — 1920",
     desc: "Recupero di un contrabbasso da orchestra del primo Novecento: riparazione di crepe sul top, rifacimento della vernice, nuovo ponticello e anima su misura.",
@@ -61,7 +61,7 @@ const lavori = [
   },
   {
     category: "Restauro" as Category,
-    icon: "ph:paint-brush-fill",
+    icon: "ph:palette-fill",
     tag: "Restauro",
     title: "Mandolino napoletano — 1910",
     desc: "Restauro filologico di mandolino napoletano di pregio: ricostruzione delle fasce, rifacimento della ciotola, restauro della tastiera in ebano originale.",
