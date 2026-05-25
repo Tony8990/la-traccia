@@ -20,11 +20,25 @@ export function Contatti() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1200)); // simulate
-    setLoading(false);
-    setSuccess(true);
-    (e.target as HTMLFormElement).reset();
-    setTimeout(() => setSuccess(false), 5000);
+    const form = e.target as HTMLFormElement;
+    try {
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(new FormData(form) as unknown as Record<string, string>).toString(),
+      });
+      if (res.ok) {
+        setSuccess(true);
+        form.reset();
+        setTimeout(() => setSuccess(false), 6000);
+      } else {
+        alert("Errore nell'invio. Riprova o contattaci via email.");
+      }
+    } catch {
+      alert("Errore di rete. Controlla la connessione e riprova.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -40,7 +54,16 @@ export function Contatti() {
 
             {/* Form */}
             <Reveal direction="left">
-              <form onSubmit={handleSubmit} className="flex flex-col gap-5" noValidate>
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col gap-5"
+                noValidate
+                name="contatti"
+                method="POST"
+                data-netlify="true"
+              >
+                {/* Campo hidden richiesto da Netlify Forms */}
+                <input type="hidden" name="form-name" value="contatti" />
                 {[
                   { id: "nome",      label: "Nome *",    type: "text",  placeholder: "Il tuo nome",     required: true },
                   { id: "email",     label: "Email *",   type: "email", placeholder: "la.tua@email.it", required: true },
